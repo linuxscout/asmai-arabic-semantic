@@ -72,12 +72,62 @@ def test():
     result  =  anasem.analyze_text(text)    
 
     # the result contains objets
-    df = pd.DataFrame(anasem.decode(result))
-    print(df.head())
-    df.to_csv("output/test.csv", encoding="utf8", sep="\t")
     sem_result = anasem.display_sem(result)
     pprint.pprint(sem_result)
 
+def test_pprint():
+    import pprint
+    text  =  u"يعبد الله منذ أن تطلع الشمس"
+    result  =  []
+    anasem  =  asm.SemanticAnalyzer()    
+    result  =  anasem.analyze_text(text)    
+
+    # the result contains objets
+    anasem.pprint(result)
+
+
+def test_pd():
+    import pprint
+    text  =  u"يعبد الله منذ أن تطلع الشمس"
+    result  =  []
+    anasem  =  asm.SemanticAnalyzer()    
+    result  =  anasem.analyze_text(text)    
+    # the result contains objets
+    df = pd.DataFrame(anasem.decode(result))
+    print(df.head())
+    df.to_csv("output/test.csv", encoding="utf8", sep="\t")
+
+def test(display="pprint"):
+    import pprint
+    text  =  u"يعبد الله منذ أن تطلع الشمس"
+    result  =  []
+    anasem  =  asm.SemanticAnalyzer()    
+    result  =  anasem.analyze_text(text)
+    
+    if display == "pandas":
+        # the result contains objets
+        df = pd.DataFrame(anasem.decode(result))
+        print(df.head())
+        df.to_csv("output/test.csv", encoding="utf8", sep="\t")
+    elif display == "pprint":
+        # the result contains objets
+        anasem.pprint(result)        
+    elif display == "only":
+        # the result contains objets
+        sem_result = anasem.display_sem(result)
+        pprint.pprint(sem_result)      
+    elif display == "all":
+        # the result contains objets
+        sem_result = anasem.display_sem(result, all=True)
+        pprint.pprint(sem_result)
+    else:
+        pprint.pprint(result)
+
+
 if __name__  ==  '__main__':
     #~ test2()
-    test()
+    #~ display_format = "all"
+    #~ display_format = "pandas"
+    display_format = "only"
+    #~ display_format = "pprint"
+    test(display_format)
