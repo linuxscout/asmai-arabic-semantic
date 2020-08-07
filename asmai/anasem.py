@@ -13,17 +13,18 @@
 """
     Arabic Semantic analyzer
 """
-import sys
-sys.path.append('../')
-sys.path.append('../lib')
-from . import  sem_const_light as sem_const
-from . import semdictionary 
 
 import functools
 import operator
 import pprint
+import sys
 
-#~ import  asmai.sem_const_heavy as sem_const
+sys.path.append('../')
+sys.path.append('../lib')
+from . import  sem_const as sem_const
+from . import semdictionary 
+
+
 import aranasyn.anasyn
 import aranasyn.syn_const as syc
 
@@ -418,13 +419,7 @@ class SemanticAnalyzer:
         flat_list = functools.reduce(operator.concat, stemmed_synwordlistlist) 
         flat_list = [x.__dict__ for x in flat_list ]
         return flat_list
-        #~ newresult  =  []
-        #~ for rlist in stemmed_synwordlistlist:
-            #~ tmplist  =  []
-            #~ for item in rlist:
-                #~ tmplist.append(item.get_dict())
-            #~ newresult.append(tmplist)    
-        #~ return  newresult
+
 
     def display(self, stemmed_synwordlistlist):
         """
