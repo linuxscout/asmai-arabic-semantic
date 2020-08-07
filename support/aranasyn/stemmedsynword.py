@@ -317,6 +317,7 @@ class StemmedSynWord (qalsadi.stemmedword.StemmedWord):
         @tyep previous: integer
         """
         return list(self.sem_previous.keys())
+        
     def forced_case(self):
         """
         Add a new tag to syntax field as foced case

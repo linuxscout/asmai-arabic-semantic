@@ -24,6 +24,7 @@ sys.path.append('../lib')
 from . import  sem_const as sem_const
 from . import semdictionary 
 
+import qalsadi.analex     
 
 import aranasyn.anasyn
 import aranasyn.syn_const as syc
@@ -439,6 +440,56 @@ class SemanticAnalyzer:
             text +=  u'\n\t]'
         text +=  u'\n]'
         return text
+    def display_sem(self, stemmed_synwordlistlist, all=False):
+        """
+        display objects result from analysis
+        @param stemmed_synwordlistlist: list of  list of StemmedSynWord.
+        @type word_result: list of  list of StemmedSynWord
+        @param all: display all words with tags
+        @type all: boolean (default False)
+        """    
+        wordsemlist  =  []
+        wordlist  =  []
+        tag_list = []
+        # list of stemmed forms list of a word
+        # list of list of word stemmed
+        previous_rlist = None
+        for rlist in stemmed_synwordlistlist:
+            # list of word stemmed of a specific word
+            # add general tag
+            wordlist.append(rlist[0].get_word())
+            for item in rlist:
+                if item.has_sem_next():
+                    tag_list.append("B")
+                    break
+            else:
+                # if last tag is B
+                if tag_list and tag_list[-1] == "B":
+                    tag_list.append("I")
+                else:
+                    tag_list.append("O")
+            # list of word stemmed of a specific word
+            forms_list = []
+            for item in rlist:
+                if item.has_sem_previous():
+                    sem_prev = item.sem_previous
+                    for wordstem in previous_rlist:
+                        order = wordstem.get_order() 
+                        if order in sem_prev:
+                            forms_list.append([item.get_vocalized(), wordstem.get_vocalized(),
+                             item.get_original(), wordstem.get_original(),
+                              sem_prev.get(order, 10000)])
+            wordsemlist.append(forms_list)
+            previous_rlist = rlist
+        result = list(zip(wordlist, tag_list, wordsemlist))
+        tmp_list = []
+        if not all:
+            # skip non detected words
+            for word, tag, sem in result:
+                if sem:
+                    tmp_list.append(sem)
+            result = tmp_list
+        return result
     def pprint(self, stemmed_synwordlistlist):
         """
         print objects result from analysis
@@ -450,6 +501,18 @@ class SemanticAnalyzer:
         flat_list = self.decode(stemmed_synwordlistlist)
         pprint.pprint(flat_list)
     
+    def analyze_text(self, text):
+        """
+        Text Analysis semanticly
+        """
+        analyzer  =  qalsadi.analex.Analex()
+        anasynt   =  aranasyn.anasyn.SyntaxAnalyzer()
+        result    =  analyzer.check_text(text)
+        result, synodelist  =  anasynt.analyze(result)
+        # semantic result
+        result   =  self.analyze(result)
+        return result
+        
 def mainly():
     """
     main test

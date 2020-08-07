@@ -47,7 +47,7 @@ import aranasyn.syn_const as syc
 def functools_reduce(a):
     return functools.reduce(operator.concat, a)
 
-def test():
+def test2():
     import pprint
     text  =  u"يعبد الله منذ أن تطلع الشمس"
     result  =  []
@@ -62,7 +62,22 @@ def test():
     # the result contains objets
     df = pd.DataFrame(anasem.decode(result))
     print(df.head())
-    df.to_csv("output/test.csv", sep="\t")
+    df.to_csv("output/test.csv", encoding="utf8", sep="\t")
     #~ anasem.pprint(result)
+def test():
+    import pprint
+    text  =  u"يعبد الله منذ أن تطلع الشمس"
+    result  =  []
+    anasem  =  asm.SemanticAnalyzer()    
+    result  =  anasem.analyze_text(text)    
+
+    # the result contains objets
+    df = pd.DataFrame(anasem.decode(result))
+    print(df.head())
+    df.to_csv("output/test.csv", encoding="utf8", sep="\t")
+    sem_result = anasem.display_sem(result)
+    pprint.pprint(sem_result)
+
 if __name__  ==  '__main__':
+    #~ test2()
     test()
