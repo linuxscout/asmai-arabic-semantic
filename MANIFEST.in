@@ -1,0 +1,6 @@
+include asmai/data/semantic.sqlite
+include data-source/semantic-schema.sql
+include data-source/semantic.sql
+include data-source/derivations.csv
+include data-source/relations.csv
+

@@ -1,0 +1,11 @@
+Metadata-Version: 0.1
+Name:maskouk-pysqlite
+Version: 0.1
+Summary:  Asmai: (Al'asma'i) Arabic semantic analysis library for Python
+Home-page: http://github.com/linuxscout/asmai-arabic-semantic
+Author: Taha Zerrouki
+Author-email: taha.zerrouki@gmail.com
+License: GPL
+Description: Asmai: (Al'asma'i) : Arabic SeMantic AnalysIs library for Python
+Platform: Os-independent
+
