@@ -41,8 +41,8 @@ sys.path.append('../asmai')
 sys.path.append('../support')    
 
 import asmai.anasem as asm
-import aranasyn.anasyn
-import aranasyn.syn_const as syc
+import sylajone.anasyn
+import sylajone.syn_const as syc
 
 def functools_reduce(a):
     return functools.reduce(operator.concat, a)
@@ -52,7 +52,7 @@ def test2():
     text  =  u"يعبد الله منذ أن تطلع الشمس"
     result  =  []
     analex  =  qalsadi.analex.Analex()
-    anasyn  =  aranasyn.anasyn.SyntaxAnalyzer()
+    anasyn  =  sylajone.anasyn.SyntaxAnalyzer()
     anasem  =  asm.SemanticAnalyzer()    
     result  =  analex.check_text(text)
     result, synodelist  =  anasyn.analyze(result)

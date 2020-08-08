@@ -26,10 +26,10 @@ from . import semdictionary
 
 import qalsadi.analex     
 
-import aranasyn.anasyn
-import aranasyn.syn_const as syc
+import sylajone.anasyn
+import sylajone.syn_const as syc
 
-import aranasyn.cache
+import sylajone.cache
 import logging
 debug  =  False
 #debug  =  True
@@ -49,7 +49,7 @@ class SemanticAnalyzer:
         self.semdict = semdictionary.SemanticDictionary()
         
         # a NoSql database for ferquent relationship between lexical words.
-        self.syncache = aranasyn.cache.cache(cache_path)
+        self.syncache = sylajone.cache.cache(cache_path)
         logging.basicConfig(level=logging.NOTSET)
         self.logger = logging.getLogger(__name__)        
         
@@ -506,7 +506,7 @@ class SemanticAnalyzer:
         Text Analysis semanticly
         """
         analyzer  =  qalsadi.analex.Analex()
-        anasynt   =  aranasyn.anasyn.SyntaxAnalyzer()
+        anasynt   =  sylajone.anasyn.SyntaxAnalyzer()
         result    =  analyzer.check_text(text)
         result, synodelist  =  anasynt.analyze(result)
         # semantic result
@@ -522,7 +522,7 @@ def mainly():
     import qalsadi.analex     
     result  =  []
     analyzer  =  qalsadi.analex.Analex()
-    anasynt  =  aranasyn.anasyn.SyntaxAnalyzer()
+    anasynt  =  sylajone.anasyn.SyntaxAnalyzer()
     anasem  =  SemanticAnalyzer()    
     result  =  analyzer.check_text(text)
     result, synodelist  =  anasynt.analyze(result)

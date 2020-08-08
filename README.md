@@ -6,9 +6,7 @@ Asmai: (Al'asma'i) Arabic semantic analysis library for Python
 
 ![asmai logo](doc/asmai_header.png  "asmai logo")
 
-[![downloads]( https://img.shields.io/sourceforge/dt/asmai.svg)](http://sourceforge.org/projects/asmai)
-[![downloads]( https://img.shields.io/sourceforge/dm/asmai.svg)](http://sourceforge.org/projects/asmai)
-
+![PyPI - Downloads](https://img.shields.io/pypi/dm/asmai)
 
   Developpers:  Taha Zerrouki: http://tahadz.com
     taha dot zerrouki at gmail dot com
@@ -20,11 +18,9 @@ Authors  | [Authors.md](https://github.com/linuxscout/asmai-arabic-semantic/mast
 Release  | 0.1
 License  |[GPL](https://github.com/linuxscout/asmai-arabic-semantic/master/LICENSE)
 Tracker  |[linuxscout/asmai/Issues](https://github.com/linuxscout/asmai-arabic-semantic/issues)
-Website  |[http://asmai.sourceforge.net](http://asmai-arabic-semantic.sourceforge.net)
 Source  |[Github](http://github.com/linuxscout/asmai-arabic-semantic)
-Download  |[sourceforge](http://asmai.sourceforge.net)
 Feedbacks  |[Comments](https://github.com/linuxscout/asmai-arabic-semantic/)
-Accounts  |[@Twitter](https://twitter.com/linuxscout)  [@Sourceforge](http://sourceforge.net/projects/asmai/)
+Accounts  |[@Twitter](https://twitter.com/linuxscout)
 
 ## Description
 
@@ -120,8 +116,7 @@ anasem.pprint(result)
   
     1- pyarabic 
     2. sqlite
-    3. aranasyn
-
+    3. sylajone
 
 ## Data Structure:
 

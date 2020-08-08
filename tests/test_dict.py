@@ -38,8 +38,8 @@ sys.path.append('../support')
 
 import qalsadi.analex     
 import asmai.anasem as asm
-import aranasyn.anasyn
-import aranasyn.syn_const as syc   
+import sylajone.anasyn
+import sylajone.syn_const as syc   
 import pyarabic.araby as araby
 
 class asmaiTestCase(unittest.TestCase):

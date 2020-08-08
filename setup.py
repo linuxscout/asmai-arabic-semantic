@@ -10,7 +10,7 @@ def readme():
         return f.read()
 
 setup (name='asmai', version='0.1',
-      description='Asmai: (Al'asma'i) Arabic semantic analysis library for Python',
+      description="Asmai: (Al'asma'i) Arabic semantic analysis library for Python",
       long_description = readme(),      
 
       author='Taha Zerrouki',
