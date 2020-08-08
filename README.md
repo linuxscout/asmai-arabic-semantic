@@ -46,6 +46,16 @@ pip install asmai
 ```python
 pip install asmai
 ```
+## Citation
+```bibtex
+@thesis{zerrouki2020adawat,
+author = {Taha Zerrouki},
+title = {Towards An Open Platform For Arabic Language Processing},
+type = {PhD thesis},
+institution = {Ecole Nationale Supérieure d'informatique, Alger, Algérie},
+date = {2020},
+}
+```
 #### Test 
 ```python
 import asmai.anasem as asm
