@@ -36,10 +36,7 @@ Asmai: (Al'asma'i) Arabic semantic analysis library for Python
 - 
 
 </div>
-### install
-```shell
-pip install asmai
-```
+
 ### Usage
 
 #### import
