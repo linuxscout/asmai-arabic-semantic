@@ -24,7 +24,7 @@ Accounts  |[@Twitter](https://twitter.com/linuxscout)
 
 ## Description
 
-Asmai: (Al'asma'i) Arabic semantic analysis library for Python
+Asmai: (Al'asma'i) Arabic semantic analysis library for Python,  it provides extracting word pairs that carry meanings of the type: (subject-verb, verb-object, word composition)
 
 
 
